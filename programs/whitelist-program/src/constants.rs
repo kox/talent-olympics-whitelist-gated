@@ -1,0 +1,4 @@
+pub const MINIMUM_PRICE: u64 = 1_000_000_000;
+pub const MAXIMUM_PRICE: u64 = 2_000_000_000;
+
+
