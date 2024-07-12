@@ -1,18 +1,12 @@
 use anchor_lang::prelude::*;
-use anchor_spl::{
-    associated_token::AssociatedToken, 
-    token_interface::{
-        Mint, 
-        Token2022,
-        TokenAccount, 
-        TokenInterface, 
-        TransferChecked, 
-        transfer_checked
-    }
+use anchor_spl::token_interface::{
+    transfer_checked, Mint, Token2022, TokenAccount, TransferChecked,
 };
 
 use crate::{
-    constants::{MAXIMUM_PRICE, MINIMUM_PRICE}, errors::WhitelistErrors, state::{ Purchase, Whitelist }
+    constants::{MAXIMUM_PRICE, MINIMUM_PRICE},
+    errors::WhitelistErrors,
+    state::{Purchase, Whitelist},
 };
 
 #[derive(Accounts)]
@@ -20,8 +14,6 @@ use crate::{
 pub struct SendTokens<'info> {
     #[account(mut)]
     pub admin: Signer<'info>,
-
-    
 
     #[account(
         mut,
@@ -94,5 +86,5 @@ impl<'info> SendTokens<'info> {
         )?;
 
         Ok(())
-    } 
+    }
 }
